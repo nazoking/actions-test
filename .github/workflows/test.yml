@@ -19,6 +19,6 @@ jobs:
           IS_BUG: ${{ contains(github.event.pull_request.labels.*.name, 'bug') }}
         run: |
           echo "BUG=${IS_BUG}"
-          if [ $IS_BUG2 == "true" ];then OPTIONS=""; else OPTIONS="--cache" fi
+          if [ $IS_BUG2 == "true" ];then OPTIONS=""; else OPTIONS="--cache"; fi
           echo "hoge $OPTIONS"
           
