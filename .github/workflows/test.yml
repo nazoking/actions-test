@@ -16,10 +16,6 @@ jobs:
       - uses: actions/checkout@v2
       - name: Run
         env:
-          GH: ${{ toJSON(github) }}
-          EV: ${{ toJSON(github.event.pull_request.labels.*.name) }}
-          IS_BUG: ${{ join(github.event.pull_request.labels.*.name, ', ') }}
+          LABELS: ${{ join(github.event.pull_request.labels.*.name, ', ') }}
         run: |
-          echo "IS_BUG=${IS_BUG}"
-          echo "GH=${GH}"
-          echo "EV=${EV}"
+          echo "LABELS=${LABELS}"
