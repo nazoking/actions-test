@@ -16,6 +16,6 @@ jobs:
       - uses: actions/checkout@v2
       - name: Run
         env:
-          IS_BUG: ${{ contains(join(github.event.pull_request.labels.*.name), 'bug') }}
+          IS_BUG: ${{ join(github.event.pull_request.labels.*.name) }}
         run: |
           echo "IS_BUG=${IS_BUG}"
