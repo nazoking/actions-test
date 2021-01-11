@@ -16,6 +16,9 @@ jobs:
       - uses: actions/checkout@v2
       - name: Run
         env:
-          LABELS: ${{ join(github.event.pull_request.labels.*.name, ', ') }}
+          IS_BUG: ${{ contains(github.event.pull_request.labels.*.name, 'bug') }}
         run: |
-          echo "LABELS=${LABELS}"
+          echo "BUG=${IS_BUG}"
+          if [ $IS_BUG2 == "true" ];then OPTIONS=""; else OPTIONS="--cache" fi
+          echo "hoge $OPTIONS"
+          
